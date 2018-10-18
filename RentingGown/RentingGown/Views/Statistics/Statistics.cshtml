@@ -1,0 +1,225 @@
+﻿
+@{
+   
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Tabs - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>
+    <script>
+
+        var barChartData =
+        {
+            labels: [@Html.Raw(ViewBag.colors)],
+            datasets: [{
+                label: 'שמלות',
+                backgroundColor: [
+                    "red",
+                    "#222",
+                    "grey",
+                    "#990033",
+                    "#f7bd83",
+                ],
+                borderWidth: 2,
+                data: [@ViewBag.colorsValues]
+            }]
+        };
+         var PieChartData =
+            {
+                labels: [@Html.Raw(ViewBag.catgories)],
+                datasets: [{
+                    label: 'קהל יעד פופולרי',
+                    backgroundColor: [
+                        "red",
+                        "#222",
+                        "grey",
+                        "yellow",
+                        "white",  
+                    ],
+                    borderWidth: 2,
+                    data: [@ViewBag.catgoriesValues]
+                }]
+        };
+                    var LineChartData =  
+            {  
+                labels: [@Html.Raw(ViewBag.priceRange)],  
+                datasets: [{  
+                    label: 'התפלגות המחירים:',  
+                    backgroundColor: "red",  
+                    borderWidth: 2,  
+                    data: [@ViewBag.priceRangeValues]  
+                }]  
+        };
+                var DoughnutChartData =  
+            {  
+                labels: [@Html.Raw(ViewBag.favouriteLength)],  
+                datasets: [{  
+                    label: 'התפלגות האורך הפופולרית',  
+                    backgroundColor: [  
+                        "red",  
+                        "#222",  
+                        "grey",  
+                        "yellow",  
+                        "white",  
+                    ],  
+                    borderWidth: 2,  
+                    data: [@ViewBag.favouriteLengthValues]  
+                }]  
+        };
+             var DoughnutChartDataLight =  
+            {  
+                labels: [@Html.Raw(ViewBag.favouriteLight)],  
+                datasets: [{  
+                    label: 'התפלגות הבהירות הפופולרית',  
+                    backgroundColor: [  
+                        "red",
+                        "#222",
+                        "grey",
+                        "yellow",
+                        "white",  
+                    ],  
+                    borderWidth: 2,  
+                    data: [@ViewBag.favouriteLightValues]  
+                }]  
+            };
+        window.onload = function () {
+            var ctx1 = document.getElementById("barcanvas").getContext("2d");
+            window.myBar = new Chart(ctx1,
+                {
+                    type: 'bar',
+                    data: barChartData,
+                    options:
+                    {
+                        title:
+                        {
+                            display: true,
+                            text: "התפלגות הצבעים הפופולריים:"
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+                });
+             ctx1 = document.getElementById("Piecanvas").getContext("2d");
+            window.myBar = new Chart(ctx1,
+                {
+                    type: 'pie',
+                    data: PieChartData,
+                    options:
+                    {
+                        title:
+                        {
+                            display: true,
+                            text: "התפלגות השכרת השמלות לפי קהל יעד:"
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+                });
+             ctx1 = document.getElementById("Linecanvas").getContext("2d");  
+                window.myBar = new Chart(ctx1,  
+                    {  
+                        type: 'line',  
+                        data: LineChartData,  
+                        options:  
+                            {  
+                                title:  
+                                {  
+                                    display: true,  
+                                    text: 'התפלגות המחירים:'  
+                                },  
+                                responsive: true,  
+                                maintainAspectRatio: true  
+                            }  
+                }); 
+             ctx1 = document.getElementById("Doughnutcanvas").getContext("2d");
+            window.myBar = new Chart(ctx1,
+                {
+                    type: 'doughnut',
+                    data: DoughnutChartData,
+                    options:
+                    {
+                        title:
+                        {
+                            display: true,
+                            text: "התפלגות האורך הפופולרית:"
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+                });  
+            ctx1 = document.getElementById("DoughnutcanvasLight").getContext("2d");
+            window.myBar = new Chart(ctx1,
+                {
+                    type: 'doughnut',
+                    data: DoughnutChartDataLight,
+                    options:
+                    {
+                        title:
+                        {
+                            display: true,
+                            text: "התפלגות הבהירות הפופולרית:"
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+                });  
+             
+        }
+        $(document).ready(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+
+
+</head>
+
+<body>
+
+  
+    <div id="tabs" style="margin-top: 10%;">
+            <ul>
+                <li><a href="#tabs-1">צבע</a></li>
+                <li><a href="#tabs-2">קהל יעד פופולרי</a></li>
+                <li><a href="#tabs-3">ארוך/קצר</a></li>
+                <li><a href="#tabs-4">בהיר/כהה</a></li>
+                <li><a href="#tabs-5">טווח מחירים</a></li>
+            </ul>
+            <div id="tabs-1">
+                <div style="text-align: center;">
+                    <canvas id="barcanvas"></canvas>
+                </div>
+
+            </div>
+            <div id="tabs-2">
+                <div style="text-align: center">
+                    <canvas id="Piecanvas"></canvas>
+                </div>
+            </div>
+            <div id="tabs-3">
+                <div style="text-align: center">
+                    <canvas id="Doughnutcanvas"></canvas>
+                </div>
+
+            </div>
+            <div id="tabs-4">
+                <div style="text-align: center">
+                    <canvas id="DoughnutcanvasLight"></canvas>
+                </div>
+            </div>
+            <div id="tabs-5">
+                <div style="text-align: center">
+                    <canvas id="Linecanvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+
+

@@ -1,0 +1,73 @@
+﻿@model List<RentingGown.Models.Rents>
+
+@{
+    Layout = "~/Views/Shared/_Manager.cshtml";
+}
+
+
+<h2>מאגר ההשכרות</h2>
+
+<table class="table" style="margin-top:5%">
+    <tr>
+        <th>
+            תשלום
+        </th>
+        <th>
+            תאריך
+        </th>
+        <th>
+            שולם
+        </th>
+        <th>
+            הוחזר
+        </th>
+        <th>
+            משכיר
+        </th>
+        <th>
+            שמלה
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            @{
+                if (item.is_payed == true)
+                {
+                    <td>שולם</td>
+                }
+                else
+                {
+                    <td>לא שולם</td>
+                }
+            }
+            @{
+                if (item.is_returned == true)
+                {
+                    <td>הוחזר</td>
+                }
+                else
+                {
+                    <td>לא הוחזר</td>
+                }
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenants.fname) @Html.DisplayFor(modelItem => item.Tenants.lname)
+            </td>
+            <td>
+                <img src="~/Images/@Html.DisplayFor(modelItem => item.Gowns.picture)" style="    width: 12%;" />
+            </td>
+
+            
+        </tr>
+    }
+
+</table>
