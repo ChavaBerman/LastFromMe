@@ -21,7 +21,7 @@
 <body dir="rtl">
     <div class="navbar navbar-inverse navbar-fixed-top" style="    height: 100px;">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" style="    margin-top: 2%;">
                 @Html.ActionLink("הוספת שמלה", "AddGown", "Renter", new { }, new { @class = "navbar-brand" })
                 @Html.ActionLink("מחיקה/עריכה", "ShowMyGowns", "Renter", new { }, new { @class = "navbar-brand" })
                 @Html.ActionLink("עריכת פרופיל", "EditProfile", "Renter", new { }, new { @class = "navbar-brand" })
@@ -34,7 +34,7 @@
             <img src="~/Images/images/logo.png" style="width: 11%;position: absolute;margin-top: -3%;margin-right: -10%;" />
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" >
         @RenderBody()
         <hr />
         <footer>

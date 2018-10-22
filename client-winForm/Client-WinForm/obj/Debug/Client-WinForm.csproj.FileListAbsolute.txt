@@ -1,0 +1,38 @@
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\bin\Debug\Client-WinForm.exe.config
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\bin\Debug\Client-WinForm.exe
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\bin\Debug\Client-WinForm.pdb
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client-WinForm.csprojAssemblyReference.cache
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client_WinForm.Properties.Resources.resources
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.GenerateResource.cache
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.CoreCompileInputs.cache
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client-WinForm.exe
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client-WinForm.pdb
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\bin\Debug\Newtonsoft.Json.dll
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\bin\Debug\Newtonsoft.Json.xml
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.CopyComplete
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client_WinForm.ManagementTaskLogin.resources
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client_WinForm.TeamHeadScreen.resources
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.AddProject.resources
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client_WinForm.Welcome.resources
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.AddWorker.resources
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.ManagerMainScreen.resources
+S:\תמי פרישמן\Final-project\Client-WinForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.ManageUsers.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\bin\Debug\Client-WinForm.exe.config
+S:\ChavyBerman\client-winForm\Client-WinForm\bin\Debug\Client-WinForm.exe
+S:\ChavyBerman\client-winForm\Client-WinForm\bin\Debug\Client-WinForm.pdb
+S:\ChavyBerman\client-winForm\Client-WinForm\bin\Debug\Newtonsoft.Json.dll
+S:\ChavyBerman\client-winForm\Client-WinForm\bin\Debug\Newtonsoft.Json.xml
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csprojAssemblyReference.cache
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.ManagementTaskLogin.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.AddProject.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.AddWorker.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.ManagerMainScreen.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.ManageUsers.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Properties.Resources.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.TeamHeadScreen.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Welcome.resources
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.GenerateResource.cache
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.CoreCompileInputs.cache
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.CopyComplete
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.exe
+S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.pdb

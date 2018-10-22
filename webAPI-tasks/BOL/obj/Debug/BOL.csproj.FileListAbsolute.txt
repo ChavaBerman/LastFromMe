@@ -1,0 +1,35 @@
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\bin\Debug\BOL.dll
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\bin\Debug\BOL.pdb
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\bin\Debug\Google.Protobuf.xml
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\bin\Debug\MySql.Data.xml
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\obj\Debug\BOL.csproj.CopyComplete
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\obj\Debug\BOL.dll
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\obj\Debug\BOL.pdb
+S:\chaya wakshtok\manage task finally project\webAPI-tasks\BOL\obj\Debug\BOL.csprojAssemblyReference.cache
+S:\חני ולדר\task\webAPI-tasks\BOL\bin\Debug\BOL.dll
+S:\חני ולדר\task\webAPI-tasks\BOL\bin\Debug\BOL.pdb
+S:\חני ולדר\task\webAPI-tasks\BOL\bin\Debug\Google.Protobuf.xml
+S:\חני ולדר\task\webAPI-tasks\BOL\bin\Debug\MySql.Data.xml
+S:\חני ולדר\task\webAPI-tasks\BOL\obj\Debug\BOL.csprojAssemblyReference.cache
+S:\חני ולדר\task\webAPI-tasks\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+S:\חני ולדר\task\webAPI-tasks\BOL\obj\Debug\BOL.csproj.CopyComplete
+S:\חני ולדר\task\webAPI-tasks\BOL\obj\Debug\BOL.dll
+S:\חני ולדר\task\webAPI-tasks\BOL\obj\Debug\BOL.pdb
+F:\!לחיה בהנאה\task\webAPI-tasks\BOL\bin\Debug\BOL.dll
+F:\!לחיה בהנאה\task\webAPI-tasks\BOL\bin\Debug\BOL.pdb
+F:\!לחיה בהנאה\task\webAPI-tasks\BOL\bin\Debug\Google.Protobuf.xml
+F:\!לחיה בהנאה\task\webAPI-tasks\BOL\bin\Debug\MySql.Data.xml
+F:\!לחיה בהנאה\task\webAPI-tasks\BOL\obj\Debug\BOL.csprojResolveAssemblyReference.cache
+F:\!לחיה בהנאה\task\webAPI-tasks\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+F:\!לחיה בהנאה\task\webAPI-tasks\BOL\obj\Debug\BOL.dll
+F:\!לחיה בהנאה\task\webAPI-tasks\BOL\obj\Debug\BOL.pdb
+S:\ChavyBerman\webAPI-tasks\BOL\bin\Debug\BOL.dll
+S:\ChavyBerman\webAPI-tasks\BOL\bin\Debug\BOL.pdb
+S:\ChavyBerman\webAPI-tasks\BOL\bin\Debug\Google.Protobuf.xml
+S:\ChavyBerman\webAPI-tasks\BOL\bin\Debug\MySql.Data.xml
+S:\ChavyBerman\webAPI-tasks\BOL\obj\Debug\BOL.csprojAssemblyReference.cache
+S:\ChavyBerman\webAPI-tasks\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+S:\ChavyBerman\webAPI-tasks\BOL\obj\Debug\BOL.csproj.CopyComplete
+S:\ChavyBerman\webAPI-tasks\BOL\obj\Debug\BOL.dll
+S:\ChavyBerman\webAPI-tasks\BOL\obj\Debug\BOL.pdb

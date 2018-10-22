@@ -399,11 +399,10 @@
     <Content Include="Views\Rents\Index.cshtml" />
     <Content Include="Views\Manager\ShowRents.cshtml" />
     <Content Include="Views\Statistics\Statistics.cshtml" />
-    <Content Include="Views\Statistics\ByColor.cshtml" />
     <Content Include="Views\Gowns\Checkout.cshtml" />
     <Content Include="Views\Gowns\RentsDetails.cshtml" />
-    <Content Include="Views\Statistics\Trying.cshtml" />
-    <Content Include="Views\Statistics\PopularCatgory.cshtml" />
+    <Content Include="Views\Statistics\CheckOut.cshtml" />
+    <Content Include="Views\Shared\_Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\images\resource\" />

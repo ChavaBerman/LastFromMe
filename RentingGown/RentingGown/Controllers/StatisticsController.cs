@@ -10,6 +10,17 @@ namespace RentingGown.Controllers
     public class StatisticsController : Controller
     {
         private static RentingGownDB db = new RentingGownDB();
+
+        public ActionResult CheckOut()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Checkout(string name, string phone, string address)
+        {
+            return RedirectToAction("Statistics");
+        }
         // GET: Statistics
         public ActionResult Statistics()
         {

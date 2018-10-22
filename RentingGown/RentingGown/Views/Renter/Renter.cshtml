@@ -16,14 +16,8 @@
 <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
-<body onload="afterLoad()">
+<body onload="afterLoad()" >
     <h2>ברוכים הבאים</h2>
-    @*@{ if (Session["user"] != null)
-            {
-                <span>@{(Session["user"] as RentingGown.Models.Renters).fname}</span>
-        }
-
-        }*@
     <input type="hidden" id="msg" name=@ViewBag.msg />
 </body>
 

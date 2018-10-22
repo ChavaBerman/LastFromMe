@@ -11,12 +11,19 @@ namespace RentingGown.Controllers
 {
     public class RenterController : Controller
     {
+
         private RentingGownDB db = new RentingGownDB();
         // GET: Renter
         public ActionResult Renter(int? msg)
         {
-            ViewBag.msg = msg;
-            return View();
+
+            if (Session["user"] != null && Session["user"] is Renters)
+            {
+                ViewBag.msg = msg;
+                return View();
+            }
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
         }
         // GET: Gowns/Create
         public ActionResult AddGown(int? error)
@@ -37,7 +44,7 @@ namespace RentingGown.Controllers
         {
             if (Session["user"] != null)
             {
-                Gowns gown = new Gowns() { id_catgory = id_catgory, id_season = id_season, is_light = (is_light == "בהיר"), is_long = (is_long == "ארוך"), price = price, size = size,is_available=true };
+                Gowns gown = new Gowns() { id_catgory = id_catgory, id_season = id_season, is_light = (is_light == "בהיר"), is_long = (is_long == "ארוך"), price = price, size = size, is_available = true };
                 gown.id_renter = (Session["user"] as Renters).id_renter;
                 Colors newColor = new Colors() { color = color };
                 db.Colors.Add(newColor);
@@ -59,111 +66,146 @@ namespace RentingGown.Controllers
         }
         public ActionResult DeleteGown(int? id)
         {
-            string msg = "";
-            if (id != null)
+            if (Session["user"] != null && Session["user"] is Renters)
             {
-                List<Rents> gownUses = db.Rents.Where(p => p.id_gown == id && p.date > DateTime.Now).ToList();
-                 msg = "";
-                foreach (Rents item in gownUses)
+                string msg = "";
+                if (id != null)
                 {
-                    msg += item.date.ToString();
+                    List<Rents> gownUses = db.Rents.Where(p => p.id_gown == id && p.date > DateTime.Now).ToList();
+                    msg = "";
+                    foreach (Rents item in gownUses)
+                    {
+                        msg += item.date.ToString();
+                    }
+                    ViewBag.msg = msg;
+                    db.Gowns.First(p => p.id_gown == id).is_available = false;
+                    db.SaveChanges();
                 }
-                ViewBag.msg = msg;
-                db.Gowns.First(p => p.id_gown == id).is_available = false;
-                db.SaveChanges();
+                else ViewBag.msg = "";
+                int idRener = (Session["user"] as Renters).id_renter;
+                List<Gowns> currentRenterGowns = db.Gowns.Where(p => p.id_renter == idRener).ToList();
+                return RedirectToAction("ShowMyGowns", new { msg = msg });
             }
-            else ViewBag.msg = "";
-            int idRener = (Session["user"] as Renters).id_renter;
-            List<Gowns> currentRenterGowns = db.Gowns.Where(p => p.id_renter == idRener).ToList();
-            return RedirectToAction("ShowMyGowns",new { msg=msg});
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult DeleteGownPost(int? id)
         {
-            Gowns gown = db.Gowns.First(p => p.id_gown == id);
-            List<Rents> gownUses = db.Rents.Where(p => p.id_gown == id && p.date > DateTime.Now).ToList();
-            if (gownUses.Count() > 0)
-                return RedirectToAction("DeleteGown", new { id });
-            gown.is_available = false;
-            db.SaveChanges();
-            return RedirectToAction("DeletGown");
+            if (Session["user"] != null && Session["user"] is Renters)
+            {
+                Gowns gown = db.Gowns.First(p => p.id_gown == id);
+                List<Rents> gownUses = db.Rents.Where(p => p.id_gown == id && p.date > DateTime.Now).ToList();
+                if (gownUses.Count() > 0)
+                    return RedirectToAction("DeleteGown", new { id });
+                gown.is_available = false;
+                db.SaveChanges();
+                return RedirectToAction("DeletGown");
+            }
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult ShowMyGowns(string msg)
         {
-            if (msg != null)
-                ViewBag.msg = msg;
-            else ViewBag.msg = "noMsg";
-            List<Gowns> myGowns = new List<Gowns>();
-            if (Session["user"] != null)
+            if (Session["user"] != null && Session["user"] is Renters)
             {
-                int id = (Session["user"] as Renters).id_renter;
-                myGowns = db.Gowns.Where(p =>p.id_renter==id&&p.is_available==true).ToList();
+                if (msg != null)
+                    ViewBag.msg = msg;
+                else ViewBag.msg = "noMsg";
+                List<Gowns> myGowns = new List<Gowns>();
+                if (Session["user"] != null)
+                {
+                    int id = (Session["user"] as Renters).id_renter;
+                    myGowns = db.Gowns.Where(p => p.id_renter == id && p.is_available == true).ToList();
+                }
+                return View(myGowns);
             }
-            return View(myGowns);
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult EditGown(int? id)
         {
-            if (id == null)
+            if (Session["user"] != null && Session["user"] is Renters)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Gowns gown = db.Gowns.Find(id);
+                ViewBag.id_catgory = new SelectList(db.Catgories, "id_catgory", "catgory", gown.id_catgory);
+                ViewBag.id_season = new SelectList(db.Seasons, "id_season", "season", gown.id_season);
+                ViewBag.color = new SelectList(db.Colors, "id_color", "color", gown.color);
+                return View(gown);
             }
-            Gowns gown = db.Gowns.Find(id);
-            ViewBag.id_catgory = new SelectList(db.Catgories, "id_catgory", "catgory", gown.id_catgory);
-            ViewBag.id_season = new SelectList(db.Seasons, "id_season", "season", gown.id_season);
-            ViewBag.color = new SelectList(db.Colors, "id_color", "color", gown.color);
-            return View(gown);
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        public ActionResult EditGown(int id_gown,int id_catgory, int id_season, string is_long, int price, string is_light, int color, string picture, int size)
+        public ActionResult EditGown(int id_gown, int id_catgory, int id_season, string is_long, int price, string is_light, int color, string picture, int size)
         {
-            Gowns gown = db.Gowns.Find(id_gown);
-            gown.id_catgory = id_catgory;
-            gown.id_season = id_season;
-            if (is_long == "ארוך")
-                gown.is_long = true;
-            else gown.is_long = false;
-            if (is_light == "בהיר")
-                gown.is_light = true;
-            else gown.is_light = false;
-            gown.price = price;
-            gown.color = color;
-            gown.size = size;
-            if (picture != null)
+            if (Session["user"] != null && Session["user"] is Renters)
             {
-                WebImage photo = WebImage.GetImageFromRequest("picture");
-                var PictureName = Guid.NewGuid().ToString() + ".jpeg";
-                gown.picture = PictureName;
-                if (photo != null)
+                Gowns gown = db.Gowns.Find(id_gown);
+                gown.id_catgory = id_catgory;
+                gown.id_season = id_season;
+                if (is_long == "ארוך")
+                    gown.is_long = true;
+                else gown.is_long = false;
+                if (is_light == "בהיר")
+                    gown.is_light = true;
+                else gown.is_light = false;
+                gown.price = price;
+                gown.color = color;
+                gown.size = size;
+                if (picture != null)
                 {
-                    var imagePath = @"Images\" + PictureName;
-                    photo.Save(@"~\" + imagePath);
+                    WebImage photo = WebImage.GetImageFromRequest("picture");
+                    var PictureName = Guid.NewGuid().ToString() + ".jpeg";
+                    gown.picture = PictureName;
+                    if (photo != null)
+                    {
+                        var imagePath = @"Images\" + PictureName;
+                        photo.Save(@"~\" + imagePath);
+                    }
                 }
-            }
-            db.SaveChanges();
+                db.SaveChanges();
 
-            return RedirectToAction("Renter");
+                return RedirectToAction("Renter");
+            }
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult EditProfile()
         {
-            Renters renter = new Renters();
-            if (Session["user"] != null)
+            if (Session["user"] != null && Session["user"] is Renters)
             {
-               renter = (Session["user"] as Renters);
+                Renters renter = new Renters();
+                if (Session["user"] != null)
+                {
+                    renter = (Session["user"] as Renters);
+                }
+                return View(renter);
             }
-            return View(renter);
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
         }
         [HttpPost]
         public ActionResult EditProfile([Bind(Include = "id_renter,fname,lname,phone,cellphone,address")] Renters oldRenter)
         {
-            Renters renter = db.Renters.FirstOrDefault(p => p.id_renter == oldRenter.id_renter);
-            renter.fname = oldRenter.fname;
-            renter.lname = oldRenter.lname;
-            renter.phone = oldRenter.phone;
-            renter.cellphone = oldRenter.cellphone;
-            renter.address = oldRenter.address;
-            db.SaveChanges();
-            if (Session["user"] != null)
-                Session["user"] = renter;
-            return RedirectToAction("Renter");
+            if (Session["user"] != null && Session["user"].GetType() == typeof(Renters))
+            {
+                Renters renter = db.Renters.FirstOrDefault(p => p.id_renter == oldRenter.id_renter);
+                renter.fname = oldRenter.fname;
+                renter.lname = oldRenter.lname;
+                renter.phone = oldRenter.phone;
+                renter.cellphone = oldRenter.cellphone;
+                renter.address = oldRenter.address;
+                db.SaveChanges();
+                if (Session["user"] != null)
+                    Session["user"] = renter;
+                return RedirectToAction("Renter");
+            }
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
         }
 
     }
