@@ -357,7 +357,6 @@
     <Content Include="Views\Renters\Index.cshtml" />
     <Content Include="Views\Connection\AddRenter.cshtml" />
     <Content Include="Views\Gowns\Create.cshtml" />
-    <Content Include="Views\Gowns\Delete.cshtml" />
     <Content Include="Views\Gowns\Details.cshtml" />
     <Content Include="Views\Gowns\Edit.cshtml" />
     <Content Include="Views\Gowns\Index.cshtml" />

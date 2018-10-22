@@ -20,6 +20,7 @@ namespace RentingGown.Controllers
             if (Session["user"] != null && Session["user"] is Renters)
             {
                 ViewBag.msg = msg;
+                ViewBag.username = (Session["user"] as Renters).fname;
                 return View();
             }
             Session["user"] = null;
@@ -191,7 +192,7 @@ namespace RentingGown.Controllers
         [HttpPost]
         public ActionResult EditProfile([Bind(Include = "id_renter,fname,lname,phone,cellphone,address")] Renters oldRenter)
         {
-            if (Session["user"] != null && Session["user"].GetType() == typeof(Renters))
+            if (Session["user"] != null )
             {
                 Renters renter = db.Renters.FirstOrDefault(p => p.id_renter == oldRenter.id_renter);
                 renter.fname = oldRenter.fname;

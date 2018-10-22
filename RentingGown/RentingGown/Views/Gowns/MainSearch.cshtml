@@ -34,7 +34,7 @@
         foreach (KeyValuePair<int, dynamic> details in myList)
         {
             RentingGown.Models.Gowns item = Model.Find(p => p.id_gown == details.Key);
-            <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12" style="font-family:Calibri">
                 <div class="listing-box">
                     <a href="/Gowns/showGown/@item.id_gown">
                         <div class="listing-box-thumb">

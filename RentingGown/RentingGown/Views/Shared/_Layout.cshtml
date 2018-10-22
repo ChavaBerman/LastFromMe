@@ -9,7 +9,7 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <link href="~/Content/StyleSheet.css" rel="stylesheet" />
 </head>
-<body dir="rtl">
+<body dir="rtl" style="font-family:Calibri">
     
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container" style="background-color: #222;border: solid 2px #222;">
@@ -20,15 +20,14 @@
                 @Html.ActionLink("הרשמה", "Register", "User", new { }, new { @class = "navbar-brand" })
                 @Html.ActionLink("כניסה", "Login", "User", new { }, new { @class = "navbar-brand" })
                 @Html.ActionLink("חיפוש שמלה", "Search", "Gowns", new { }, new { @class = "navbar-brand" })
-                @*@Html.ActionLink("statistics", "Statistics", "Statistics", new { }, new { @class = "navbar-brand" })*@
+               
             </div>
             <div class="navbar-collapse collapse" style=" margin-right: 6%;  ">
                 <div class="acount-header-btn">
-                    <span style="color: white;"><a href="/User/Login">Sign IN</a></span>
-                    <span style="color: white;"><a href="/User/Register">Register</a></span>
+                
                     <span style="color: white;"><a href="/User/Register"></a></span>
                 </div>
-                <a href="/Statistics/CheckOut" title="" class="add-listing-btn"><i class="la la-plus"></i>סטטיסטיקות</a>
+                <a href="/Statistics/CheckOut" title="" class="add-listing-btn">סטטיסטיקות</a>
                 <ul class="nav navbar-nav"></ul>
             </div>
             <img src="~/Images/images/logo.png" style="width: 11%;position: absolute;margin-top: -5%;margin-right: -7%;" />

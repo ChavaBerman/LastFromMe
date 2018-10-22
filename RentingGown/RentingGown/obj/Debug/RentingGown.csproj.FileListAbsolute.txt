@@ -1247,8 +1247,6 @@ C:\Users\User\Documents\GitHub\LastFromMe\RentingGown\RentingGown\obj\Debug\Rent
 C:\Users\User\Documents\GitHub\LastFromMe\RentingGown\RentingGown\obj\Debug\RentingGown.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\LastFromMe\RentingGown\RentingGown\obj\Debug\RentingGown.dll
 C:\Users\User\Documents\GitHub\LastFromMe\RentingGown\RentingGown\obj\Debug\RentingGown.pdb
-<<<<<<< HEAD
-=======
 C:\Users\seldat\Documents\GitHub\LastFromMe\RentingGown\RentingGown\bin\ApplicationInsights.config
 C:\Users\seldat\Documents\GitHub\LastFromMe\RentingGown\RentingGown\bin\roslyn\csc.exe
 C:\Users\seldat\Documents\GitHub\LastFromMe\RentingGown\RentingGown\bin\roslyn\csc.exe.config
