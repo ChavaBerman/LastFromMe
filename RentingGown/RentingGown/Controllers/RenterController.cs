@@ -47,8 +47,11 @@ namespace RentingGown.Controllers
             {
                 Gowns gown = new Gowns() { id_catgory = id_catgory, id_season = id_season, is_light = (is_light == "בהיר"), is_long = (is_long == "ארוך"), price = price, size = size, is_available = true };
                 gown.id_renter = (Session["user"] as Renters).id_renter;
-                Colors newColor = new Colors() { color = color };
-                db.Colors.Add(newColor);
+                if (!db.Colors.Any(p => p.color == color))
+                {
+                    Colors newColor = new Colors() { color = color };
+                    db.Colors.Add(newColor);
+                }
                 db.SaveChanges();
                 int colorId = db.Colors.First(p => p.color == color).id_color;
                 gown.color = colorId;

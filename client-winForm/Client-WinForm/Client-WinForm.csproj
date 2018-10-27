@@ -81,6 +81,12 @@
     <Compile Include="Manager\AddWorker.Designer.cs">
       <DependentUpon>AddWorker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\EditWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\EditWorker.Designer.cs">
+      <DependentUpon>EditWorker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\ManagerMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>

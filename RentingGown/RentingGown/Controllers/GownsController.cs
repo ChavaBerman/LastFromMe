@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using RentingGown.Models;
@@ -331,6 +332,7 @@ namespace RentingGown.Controllers
         {
             return View();
         }
+        List<Renters> renters = new List<Renters>();
         [HttpPost]
         public ActionResult Checkout(string name, string phone, string address)
         {
@@ -338,7 +340,7 @@ namespace RentingGown.Controllers
             db.Tenants.Add(tenant);
             db.SaveChanges();
 
-            List<Renters> renters = new List<Renters>();
+
             foreach (Gowns gown in (Session["listOfGowns"] as List<Gowns>))
             {
                 Tenants currentTenant = db.Tenants.FirstOrDefault(p => p.fname == name && p.phone == phone && p.address == address);
@@ -350,7 +352,56 @@ namespace RentingGown.Controllers
                 renters.Add(db.Renters.FirstOrDefault(p => p.id_renter == gown.id_renter));
             }
             db.SaveChanges();
-            return View("RentsDetails", renters);
+            Session["Renters"] = new List<Renters>();
+            Session["Renters"] = (renters as List<Renters>);
+            return RedirectToAction("RentsDetails");
+        }
+        public ActionResult RentsDetails()
+        {
+            if (Session["Renters"] != null)
+                return View("RentsDetails", (Session["Renters"] as List<Renters>));
+            return RedirectToAction("Search");
+        }
+        public ActionResult SendEmail(string email, string print)
+        {
+            SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("Rentingown@gmail.com", "renting1234");
+            client.UseDefaultCredentials = false;
+            client.Credentials = credentials;
+            MailMessage msg = new MailMessage();
+
+            msg.From = new MailAddress("Rentingown@gmail.com");
+            msg.To.Add(new MailAddress(email));
+            msg.Subject = "פרטי השכרה";
+            msg.IsBodyHtml = true;
+            if (Session["listOfGowns"] != null)
+            {
+                int i = 0;
+                string message = "";
+                if (Session["Renters"] != null)
+                    foreach (RentingGown.Models.Gowns item in (List<RentingGown.Models.Gowns>)Session["listOfGowns"])
+                    {
+                        Renters renter = (Session["Renters"] as List<Renters>)[i++];
+                        message += $"<div class'form-group'style='font-family:Calibri'>{i}:<label class='control-label labels'>שם פרטי</label><p class='p-details'>{renter.fname}</p><label class='control-label labels'>שם משפחה</label><p class='p-details'>{renter.lname}</p><label class='control-label labels'>טלפון</label><p class='p-details'>{renter.phone}</p><label class='control-label labels'>סלולארי</label><p class='p-details'>{renter.cellphone}</p><label class='control-label labels'>כתובת</label><p class='p-details'>{renter.address}</p><label class='control-label labels'>עיר</label><p class='p-details'>{renter.city}</p></div></div>";
+                    }
+                msg.Body = string.Format($"<html><head>הודעה שנשלחה</head><body><p>{message}</br></p></body>");
+                try
+                {
+                    client.Send(msg);
+                    return RedirectToAction("Index", "Home");
+                }
+                catch
+                {
+                    return RedirectToAction("RentsDetails");
+                }
+
+            }
+            return RedirectToAction("RentsDetails");
         }
     }
 }
+

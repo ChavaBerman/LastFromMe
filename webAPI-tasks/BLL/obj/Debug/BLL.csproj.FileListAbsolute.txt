@@ -57,3 +57,7 @@ S:\ChavyBerman\webAPI-tasks\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 S:\ChavyBerman\webAPI-tasks\BLL\obj\Debug\BLL.csproj.CopyComplete
 S:\ChavyBerman\webAPI-tasks\BLL\obj\Debug\BLL.dll
 S:\ChavyBerman\webAPI-tasks\BLL\obj\Debug\BLL.pdb
+C:\Users\User\Documents\GitHub\LastFromMe\webAPI-tasks\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\LastFromMe\webAPI-tasks\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\LastFromMe\webAPI-tasks\BLL\obj\Debug\BLL.dll
+C:\Users\User\Documents\GitHub\LastFromMe\webAPI-tasks\BLL\obj\Debug\BLL.pdb

@@ -31,6 +31,18 @@
         }
     }
 </div>
-<div>
+<div style="width: 43%;margin-right: 53%;">
     <a class="filter-btn" style="width: 30%;" onclick="Print()">הדפס</a>
+  
+
+</div>
+<div style="width: 24%;margin-left: 59%;margin-top:5%">
+    <form action="@Url.Action("SendEmail")">
+        <div class="field-form">
+            <input class="effect-16" type="email" name="email" required>
+            <label>שלח לי מייל לכתובת:</label>
+            <span class="focus-border"></span>
+        </div>
+        <button type="submit">שלח</button>
+    </form>
 </div>

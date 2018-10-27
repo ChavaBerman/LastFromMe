@@ -11,6 +11,48 @@
                 text: 'יש להחליף את שם המשתמש או את הסיסמה.'
             })
     }
+    function checkNumber(element) {
+        if (element.value.match(/^[0-9]+$/) == null) {
+            document.getElementById(element.name).value = "יש להכניס ספרות בלבד!!!";
+            swal({
+                icon: 'error',
+                title: 'בעיה',
+                text: 'שדה זה יכול להכיל ספרות בלבד!'
+            })
+        }
+    }
+    function sha256(str) {
+        // We transform the string into an arraybuffer.
+        var buffer = new TextEncoder("utf-8").encode(str);
+        return crypto.subtle.digest("SHA-256", buffer).then(function (hash) {
+            return hex(hash);
+        });
+    }
+
+    function hex(buffer) {
+        var hexCodes = [];
+        var view = new DataView(buffer);
+        for (var i = 0; i < view.byteLength; i += 4) {
+            // Using getUint32 reduces the number of iterations needed (we process 4 bytes each time)
+            var value = view.getUint32(i)
+            // toString(16) will give the hex representation of the number without padding
+            var stringValue = value.toString(16)
+            // We use concatenation and slice for padding
+            var padding = '00000000'
+            var paddedValue = (padding + stringValue).slice(-padding.length)
+            hexCodes.push(paddedValue);
+        }
+
+        // Join all the hex strings into one
+        return hexCodes.join("");
+    }
+    function hashPassword() {
+        let password = document.getElementById("password").value;
+        let hash = sha256(password).then(function (digest) {
+            document.getElementById("hash").value = digest;
+        });
+
+    }
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
@@ -194,7 +236,7 @@
             padding: 6px 12px;
         }
     </style>
-    <section  style="margin-top:10%">
+    <section style="margin-top:10%">
         <div class="block gray">
             <div class="container">
                 <div class="row">
@@ -205,32 +247,29 @@
                                 <h5>עבור משכיר</h5>
                                 <form action="@Url.Action("Register","User")" method="post">
                                     <div class="field-form">
-                                        <input class="effect-16" type="text" name="fname" required>
+                                        <input class="effect-16" type="text" name="fname"minlength="2" maxlength="15" required>
                                         <label>שם פרטי</label>
                                         <span class="focus-border"></span>
                                     </div>
                                     <div class="field-form">
-                                        <input class="effect-16" type="text" name="lname" required>
+                                        <input class="effect-16" type="text" name="lname" minlength="2" maxlength="15" required>
                                         <label>שם משפחה</label>
                                         <span class="focus-border"></span>
                                     </div>
                                     <div class="field-form">
-                                        <input class="effect-16" type="text" name="phone" required>
+                                        <input class="effect-16" type="text" name="phone" minlength="9" maxlength="9" required onchange="checkNumber(this)">
                                         <label>טלפון</label>
                                         <span class="focus-border"></span>
+
                                     </div>
                                     <div class="field-form">
-                                        <input class="effect-16" type="text" name="cellphone">
+                                        <input class="effect-16" type="text" name="cellphone" minlength="10" maxlength="10" onchange="checkNumber(this)">
                                         <label>טלפון סלולארי</label>
                                         <span class="focus-border"></span>
-                                    </div>
-                                    @*<div class="field-form">
-                                            <input class="effect-16" type="text" name="address" required>
-                                            <label>כתובת</label>
-                                            <span class="focus-border"></span>
-                                        </div>*@
-                                    <div class="pac-card" id="pac-card">
 
+                                    </div>
+
+                                    <div class="pac-card" id="pac-card">
                                         <div id="pac-container" style="display:block">
                                             <input id="pac-input" type="text" name="address" onblur="blurAddress()"
                                                    placeholder="הכנס כתובת">
@@ -246,25 +285,34 @@
                                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjo2Qe6DhOmWvJ8yO7-PzFjTuZ_8zSPCk&libraries=places&callback=initMap"
                                             async defer></script>
                                     <div class="field-form" dir="rtl">
-                                        <input class="effect-16" type="text" name="username" required>
+                                        <input class="effect-16" type="text" name="username" min="2" max="15" required>
                                         <label>שם משתמש (עבור אימות נתונים)</label>
                                         <span class="focus-border"></span>
                                     </div>
                                     <div class="field-form">
-                                        <input class="effect-16" type="password" name="password" required minlength="6" maxlength="6">
+                                        <input class="effect-16" type="password" id="password" required minlength="6" maxlength="6" onchange=" hashPassword()">
                                         <label>סיסמה</label>
                                         <span class="focus-border"></span>
+                                    </div>
+                                    <input type="hidden" name="password" id="hash" />
+                                    <div class="field-form">
+                                        <label id="cellphone" style="color:red"></label>
+                                        <label id="phone" style="color:red"></label>
+                                       
                                     </div>
                                     <button type="submit">הרשם</button>
                                     <input type="hidden" id="errorMsg" name=@ViewBag.errorClass />
                                 </form>
+
                             </div>
                         </div>
                     </div>
+                </div>   <div id="errors">
+                   
                 </div>
             </div>
         </div>
-
+     
     </section>
 </body>
 

@@ -1,4 +1,5 @@
 ﻿using Client_WinForm.Models;
+using MySql.Data.Types;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -89,6 +90,8 @@ namespace Client_WinForm.Manager
 
         private void btn_add_project_Click(object sender, EventArgs e)
         {
+            string s = GetString(i);
+            dt = MySqlDateTime.Parse(s);
             Project newProject = new Project {
                 ProjectName = txt_projectName.Text,
                 CustomerName = txt_CustomerName.Text,
@@ -97,7 +100,8 @@ namespace Client_WinForm.Manager
                 DevHours = DevHours.Value,
                 UIUXHours=UIUXHours.Value,
                 QAHours =QAHours.Value,
-                DateBegin=date_begin.Value,
+
+                DateBegin=(MySqlDateTime)date_begin.Value,
                 DateEnd=date_end.Value
             };
 
