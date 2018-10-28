@@ -13,7 +13,7 @@
 <link href="~/Content/colors/colors.css" rel="stylesheet" />
 <!-- color -->
 <section>
-    <div class="block gray" style="margin-top: 4%;">
+    <div class="block gray" style="margin-top: 4%;font-family:Calibri">
         <div class="container">
             <div class="row">
                 <div class="col-md-9 column">
@@ -24,33 +24,38 @@
                                 if (Model.Count == 0)
                                 {
                                     <h3>סל הבגדים ריק.</h3>
+                                    <a href="/Gowns/Search" style="position: absolute;width:40%;"><span class="price-list">לחזרה לדף החיפוש</span></a><br />
                                 }
-                                foreach (RentingGown.Models.Gowns item in Model)
+                                else
                                 {
+                                    foreach (RentingGown.Models.Gowns item in Model)
+                                    {
 
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="listing-box">
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <div class="listing-box">
 
-                                            <div class="listing-box-thumb">
-                                                <a href="/Gowns/RemoveFromBasket?id=@item.id_gown"><span class="price-list"><span class="glyphicon glyphicon-trash"></span> הסר</span></a>
-                                                <img src="~/Images/@item.picture" alt="" />
-                                                <div class="listing-box-title">
-                                                    <span>מחיר: @item.price</span>
-                                                    <span>מידה: @item.size</span>
+                                                <div class="listing-box-thumb">
+                                                    <a href="/Gowns/RemoveFromBasket?id=@item.id_gown"><span class="price-list"><span class="glyphicon glyphicon-trash"></span> הסר</span></a>
+                                                    <img src="~/Images/@item.picture" alt="" />
+                                                    <div class="listing-box-title">
+                                                        <span>מחיר: @item.price</span>
+                                                        <span>מידה: @item.size</span>
+                                                    </div>
                                                 </div>
+
+
                                             </div>
-
-
                                         </div>
-                                    </div>
 
-                                }
+                                    }
 
                                 <a href="/Gowns/Search" style="position: absolute;width:40%;"><span class="price-list">לחזרה לדף החיפוש</span></a><br />
+                                <a href="/Gowns/Checkout" title="" class="filter-btn" style="width:30%;margin-left: 49%;">סיום ומעבר לדף תשלום</a>
+                                }
                             }
                         </div>
                     </div>
-                    <a href="/Gowns/Checkout" title="" class="filter-btn" style="    width: 30%;">סיום ומעבר לדף תשלום</a>
+
                 </div>
             </div>
         </div>

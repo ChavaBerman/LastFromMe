@@ -1323,3 +1323,4 @@ C:\Users\seldat\Documents\GitHub\LastFromMe\RentingGown\RentingGown\obj\Debug\Re
 C:\Users\seldat\Documents\GitHub\LastFromMe\RentingGown\RentingGown\obj\Debug\RentingGown.csproj.CopyComplete
 C:\Users\seldat\Documents\GitHub\LastFromMe\RentingGown\RentingGown\obj\Debug\RentingGown.dll
 C:\Users\seldat\Documents\GitHub\LastFromMe\RentingGown\RentingGown\obj\Debug\RentingGown.pdb
+>>>>>>> 652bc8cc2c78611ffe727c5c879d5f42542c19d8

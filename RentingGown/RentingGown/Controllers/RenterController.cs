@@ -20,6 +20,7 @@ namespace RentingGown.Controllers
             if (Session["user"] != null && Session["user"] is Renters)
             {
                 ViewBag.msg = msg;
+                ViewBag.username = (Session["user"] as Renters).fname;
                 return View();
             }
             Session["user"] = null;
@@ -46,8 +47,11 @@ namespace RentingGown.Controllers
             {
                 Gowns gown = new Gowns() { id_catgory = id_catgory, id_season = id_season, is_light = (is_light == "בהיר"), is_long = (is_long == "ארוך"), price = price, size = size, is_available = true };
                 gown.id_renter = (Session["user"] as Renters).id_renter;
-                Colors newColor = new Colors() { color = color };
-                db.Colors.Add(newColor);
+                if (!db.Colors.Any(p => p.color == color))
+                {
+                    Colors newColor = new Colors() { color = color };
+                    db.Colors.Add(newColor);
+                }
                 db.SaveChanges();
                 int colorId = db.Colors.First(p => p.color == color).id_color;
                 gown.color = colorId;
@@ -191,7 +195,7 @@ namespace RentingGown.Controllers
         [HttpPost]
         public ActionResult EditProfile([Bind(Include = "id_renter,fname,lname,phone,cellphone,address")] Renters oldRenter)
         {
-            if (Session["user"] != null && Session["user"].GetType() == typeof(Renters))
+            if (Session["user"] != null )
             {
                 Renters renter = db.Renters.FirstOrDefault(p => p.id_renter == oldRenter.id_renter);
                 renter.fname = oldRenter.fname;

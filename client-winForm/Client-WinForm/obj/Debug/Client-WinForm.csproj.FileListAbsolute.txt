@@ -36,3 +36,16 @@ S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.Cor
 S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.CopyComplete
 S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.exe
 S:\ChavyBerman\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.pdb
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.ManagementTaskLogin.resources
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.AddProject.resources
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.AddWorker.resources
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.ManagerMainScreen.resources
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Manager.ManageUsers.resources
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.TeamHeadScreen.resources
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client_WinForm.Welcome.resources
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.GenerateResource.cache
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.exe
+C:\Users\User\Documents\GitHub\LastFromMe\client-winForm\Client-WinForm\obj\Debug\Client-WinForm.pdb

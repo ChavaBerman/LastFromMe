@@ -15,6 +15,7 @@ namespace RentingGown.Controllers
         // GET: Manager
         public ActionResult Manager()
         {
+            ViewBag.username = (Session["user"] as Users).username;
             if (Session["user"] != null && Session["user"] is Users)
                 return View("Manager");
             Session["user"] = null;

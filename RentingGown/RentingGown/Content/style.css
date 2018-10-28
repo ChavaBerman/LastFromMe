@@ -64,13 +64,13 @@ body{
     position:relative;
 }
 h1,h2,h3,h4,h5,h6{
-    font-family: Oswald;
+    font-family: Calibri;
 }
 body,
 p,
 ul li ,ul li a,
 ol li,ol li a{
-    font-family:Roboto;
+    font-family:Calibri;
 }
 h1,h2,h3,h4,h5,h6{
     color:#2e2e2e;
@@ -1602,7 +1602,7 @@ header .SumoSelect > .optWrapper > .options > li.opt.selected label {
 
     color: #ffffff;
     float: right;
-    font-family: Roboto;
+    font-family: Calibri;
     font-size: 14px;
     margin: 25px 0;
     padding: 13px 23px;
@@ -1942,7 +1942,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     border-radius: 4px;
 
     color: #ffffff;
-    font-family: Roboto;
+    font-family: Calibri;
     font-size: 14px;
     padding: 6px 15px;
     position: absolute;
@@ -2774,7 +2774,7 @@ html.no-scroll {
 .acount-popup > h3 {
     color: #00171f;
     float: left;
-    font-family: Oswald;
+    font-family: Calibri;
     font-size: 30px;
     margin: 35px 0 0;
     width: 100%;
@@ -2797,7 +2797,7 @@ html.no-scroll {
 .field-form > label {
     color: #8d99ae;
     float: left;
-    font-family: Roboto;
+    font-family: Calibri;
     font-size: 16px;
     font-weight: normal;
     margin: 0;
@@ -2813,7 +2813,7 @@ html.no-scroll {
 .acount-popup p {
     color: #8d99ae;
     float: left;
-    font-family: Roboto;
+    font-family: Calibri;
     font-size: 16px;
     font-weight: normal;
     text-align: left;
@@ -2840,7 +2840,7 @@ html.no-scroll {
 
     color: #ffffff;
     float: left;
-    font-family: Oswald;
+    font-family: Calibri;
     font-size: 20px;
     height: 60px;
     margin-top: 10px;
@@ -4039,7 +4039,7 @@ input::-moz-focus-inner {
 
     color: #ffffff;
     float: left;
-    font-family: Oswald;
+    font-family: Calibri;
     font-size: 21px;
     margin-top: 10px;
     padding: 16px 30px;
@@ -4362,7 +4362,7 @@ aside .widget{
 
     color: #ffffff;
     float: left;
-    font-family: Oswald;
+    font-family: Calibri;
     font-size: 21px;
     margin-top: 50px;
     padding: 16px 30px;
@@ -6777,7 +6777,7 @@ blockquote::before {
 .range-slider > span {
     color: #8d99ae;
     float: left;
-    font-family: Roboto;
+    font-family: Calibri;
     font-size: 14px;
     margin-bottom: 27px;
     margin-top: -20px;
