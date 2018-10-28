@@ -10,7 +10,7 @@ namespace RentingGown.Controllers
 {
     public class ShowGownsController : Controller
     {
-        private RentingGownDB db = new RentingGownDB();
+        private RentingGownEntities db = new RentingGownEntities();
 
         // GET: ShowGowns
         public ActionResult ShowGowns(List<Gowns> CurrentGowns)

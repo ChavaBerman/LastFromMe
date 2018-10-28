@@ -27,7 +27,7 @@ namespace RentingGown.Controllers
     public class GownsController : Controller
     {
 
-        private RentingGownDB db = new RentingGownDB();
+        private RentingGownEntities db = new RentingGownEntities();
         public ActionResult Search()
         {
             //SelectList categories = new SelectList(db.Catgories, "id_catgory", "catgory");
@@ -378,6 +378,7 @@ namespace RentingGown.Controllers
             msg.To.Add(new MailAddress(email));
             msg.Subject = "פרטי השכרה";
             msg.IsBodyHtml = true;
+            
             if (Session["listOfGowns"] != null)
             {
                 int i = 0;
@@ -388,7 +389,7 @@ namespace RentingGown.Controllers
                         Renters renter = (Session["Renters"] as List<Renters>)[i++];
                         message += $"<div class'form-group'style='font-family:Calibri'>{i}:<label class='control-label labels'>שם פרטי</label><p class='p-details'>{renter.fname}</p><label class='control-label labels'>שם משפחה</label><p class='p-details'>{renter.lname}</p><label class='control-label labels'>טלפון</label><p class='p-details'>{renter.phone}</p><label class='control-label labels'>סלולארי</label><p class='p-details'>{renter.cellphone}</p><label class='control-label labels'>כתובת</label><p class='p-details'>{renter.address}</p><label class='control-label labels'>עיר</label><p class='p-details'>{renter.city}</p></div></div>";
                     }
-                msg.Body = string.Format($"<html><head>הודעה שנשלחה</head><body><p>{message}</br></p></body>");
+                msg.Body = string.Format($"<html><head>הודעה שנשלחה</head><body style='font-family:Calibri'><p>{message}</br></p></body>");
                 try
                 {
                     client.Send(msg);

@@ -27,7 +27,7 @@ namespace RentingGown.Models
         public string cellphone { get; set; }
         public string city { get; set; }
         public string address { get; set; }
-        public Nullable<int> password { get; set; }
+        public string password { get; set; }
         public Nullable<bool> is_active { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

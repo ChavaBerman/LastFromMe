@@ -14,7 +14,7 @@ namespace RentingGown.Controllers
     }
     public class UserController : Controller
     {
-        private RentingGownDB db = new RentingGownDB();
+        private RentingGownEntities db = new RentingGownEntities();
         // GET: User
         [HttpGet]
         public ActionResult Login(int? error)

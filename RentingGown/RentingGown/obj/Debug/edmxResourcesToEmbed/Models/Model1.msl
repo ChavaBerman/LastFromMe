@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="RentingGownModelStoreContainer" CdmEntityContainer="RentingGownDB">
+  <EntityContainerMapping StorageEntityContainer="RentingGownModelStoreContainer" CdmEntityContainer="RentingGownEntities">
     <EntitySetMapping Name="Catgories">
       <EntityTypeMapping TypeName="RentingGownModel.Catgories">
         <MappingFragment StoreEntitySet="Catgories">
@@ -38,7 +38,6 @@
     <EntitySetMapping Name="Renters">
       <EntityTypeMapping TypeName="RentingGownModel.Renters">
         <MappingFragment StoreEntitySet="Renters">
-          <ScalarProperty Name="is_active" ColumnName="is_active" />
           <ScalarProperty Name="id_renter" ColumnName="id_renter" />
           <ScalarProperty Name="fname" ColumnName="fname" />
           <ScalarProperty Name="lname" ColumnName="lname" />
@@ -47,6 +46,20 @@
           <ScalarProperty Name="city" ColumnName="city" />
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rents">
+      <EntityTypeMapping TypeName="RentingGownModel.Rents">
+        <MappingFragment StoreEntitySet="Rents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_tenant" ColumnName="id_tenant" />
+          <ScalarProperty Name="id_gown" ColumnName="id_gown" />
+          <ScalarProperty Name="payment" ColumnName="payment" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="is_payed" ColumnName="is_payed" />
+          <ScalarProperty Name="is_returned" ColumnName="is_returned" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -67,6 +80,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="RentingGownModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Idstatus" ColumnName="Idstatus" />
+          <ScalarProperty Name="statusname" ColumnName="statusname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table">
+      <EntityTypeMapping TypeName="RentingGownModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Tenants">
       <EntityTypeMapping TypeName="RentingGownModel.Tenants">
         <MappingFragment StoreEntitySet="Tenants">
@@ -79,36 +111,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Status">
-      <EntityTypeMapping TypeName="RentingGownModel.Status">
-        <MappingFragment StoreEntitySet="Status">
-          <ScalarProperty Name="statusname" ColumnName="statusname" />
-          <ScalarProperty Name="Idstatus" ColumnName="Idstatus" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="RentingGownModel.Users">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="userimage" ColumnName="userimage" />
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Rents">
-      <EntityTypeMapping TypeName="RentingGownModel.Rents">
-        <MappingFragment StoreEntitySet="Rents">
-          <ScalarProperty Name="is_returned" ColumnName="is_returned" />
-          <ScalarProperty Name="is_payed" ColumnName="is_payed" />
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="payment" ColumnName="payment" />
-          <ScalarProperty Name="id_gown" ColumnName="id_gown" />
-          <ScalarProperty Name="id_tenant" ColumnName="id_tenant" />
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="userimage" ColumnName="userimage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

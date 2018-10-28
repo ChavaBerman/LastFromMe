@@ -12,7 +12,7 @@ namespace RentingGown.Controllers
     public class RenterController : Controller
     {
 
-        private RentingGownDB db = new RentingGownDB();
+        private RentingGownEntities db = new RentingGownEntities();
         // GET: Renter
         public ActionResult Renter(int? msg)
         {

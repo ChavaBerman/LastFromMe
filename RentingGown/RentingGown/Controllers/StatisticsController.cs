@@ -9,7 +9,7 @@ namespace RentingGown.Controllers
 {
     public class StatisticsController : Controller
     {
-        private static RentingGownDB db = new RentingGownDB();
+        private static RentingGownEntities db = new RentingGownEntities();
 
         public ActionResult CheckOut()
         {

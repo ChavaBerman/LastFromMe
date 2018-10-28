@@ -13,10 +13,10 @@ namespace RentingGown.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RentingGownDB : DbContext
+    public partial class RentingGownEntities : DbContext
     {
-        public RentingGownDB()
-            : base("name=RentingGownDB")
+        public RentingGownEntities()
+            : base("name=RentingGownEntities")
         {
         }
     
@@ -29,11 +29,12 @@ namespace RentingGown.Models
         public virtual DbSet<Colors> Colors { get; set; }
         public virtual DbSet<Gowns> Gowns { get; set; }
         public virtual DbSet<Renters> Renters { get; set; }
+        public virtual DbSet<Rents> Rents { get; set; }
         public virtual DbSet<Seasons> Seasons { get; set; }
         public virtual DbSet<Sets> Sets { get; set; }
-        public virtual DbSet<Tenants> Tenants { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<Table> Table { get; set; }
+        public virtual DbSet<Tenants> Tenants { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Rents> Rents { get; set; }
     }
 }

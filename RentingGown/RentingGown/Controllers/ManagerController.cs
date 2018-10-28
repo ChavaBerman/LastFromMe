@@ -11,7 +11,7 @@ namespace RentingGown.Controllers
 {
     public class ManagerController : Controller
     {
-        private RentingGownDB db = new RentingGownDB();
+        private RentingGownEntities db = new RentingGownEntities();
         // GET: Manager
         public ActionResult Manager()
         {
